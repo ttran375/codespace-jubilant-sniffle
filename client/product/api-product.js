@@ -13,6 +13,7 @@ const create = async (params, credentials, product) => {
     console.log(err);
   }
 };
+
 const read = async (params, signal) => {
   try {
     let response = await fetch("/api/products/" + params.productId, {
@@ -24,6 +25,7 @@ const read = async (params, signal) => {
     console.log(err);
   }
 };
+
 const update = async (params, credentials, product) => {
   try {
     let response = await fetch(
@@ -42,6 +44,7 @@ const update = async (params, credentials, product) => {
     console.log(err);
   }
 };
+
 const remove = async (params, credentials) => {
   try {
     let response = await fetch(
@@ -60,6 +63,7 @@ const remove = async (params, credentials) => {
     console.log(err);
   }
 };
+
 const listByShop = async (params, signal) => {
   try {
     let response = await fetch("/api/products/by/" + params.shopId, {
@@ -71,6 +75,7 @@ const listByShop = async (params, signal) => {
     console.log(err);
   }
 };
+
 const listLatest = async (signal) => {
   try {
     let response = await fetch("/api/products/latest", {
@@ -82,6 +87,7 @@ const listLatest = async (signal) => {
     console.log(err);
   }
 };
+
 const listRelated = async (params, signal) => {
   try {
     let response = await fetch("/api/products/related/" + params.productId, {
@@ -93,6 +99,7 @@ const listRelated = async (params, signal) => {
     console.log(err);
   }
 };
+
 const listCategories = async (signal) => {
   try {
     let response = await fetch("/api/products/categories", {
@@ -104,6 +111,7 @@ const listCategories = async (signal) => {
     console.log(err);
   }
 };
+
 const list = async (params, signal) => {
   const query = queryString.stringify(params);
   try {
@@ -115,6 +123,7 @@ const list = async (params, signal) => {
     console.log(err);
   }
 };
+
 export {
   create,
   read,

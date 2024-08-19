@@ -1,4 +1,5 @@
 import { signout } from "./api-auth.js";
+
 const auth = {
   isAuthenticated() {
     if (typeof window == "undefined") return false;
@@ -29,4 +30,5 @@ const auth = {
     }
   },
 };
+
 export default auth;

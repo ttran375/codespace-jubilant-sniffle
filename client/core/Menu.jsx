@@ -22,7 +22,6 @@ const isPartActive = (location, path) => {
 export default function Menu() {
   const navigate = useNavigate();
   const location = useLocation();
-
   return (
     <AppBar position="static">
       <Toolbar>
@@ -49,7 +48,14 @@ export default function Menu() {
         )}
         {auth.isAuthenticated() && (
           <span>
-            {auth.isAuthenticated().user && auth.isAuthenticated().user.seller && (<Link to="/seller/shops"><Button style={isPartActive(location, "/seller/")}>My Shops</Button></Link>)}
+            {auth.isAuthenticated().user &&
+              auth.isAuthenticated().user.seller && (
+                <Link to="/seller/shops">
+                  <Button style={isPartActive(location, "/seller/")}>
+                    My Shops
+                  </Button>
+                </Link>
+              )}
             <Link to={"/user/" + auth.isAuthenticated().user._id}>
               <Button
                 style={isActive(

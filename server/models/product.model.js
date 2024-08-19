@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const ProductSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -31,4 +32,5 @@ const ProductSchema = new mongoose.Schema({
   },
   shop: { type: mongoose.Schema.ObjectId, ref: "Shop" },
 });
+
 export default mongoose.model("Product", ProductSchema);
