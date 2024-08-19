@@ -3,6 +3,7 @@ import extend from "lodash/extend.js";
 import errorHandler from "../helpers/dbErrorHandler.js";
 import formidable from "formidable";
 import fs from "fs";
+
 const create = (req, res, next) => {
   let form = formidable({ keepExtensions: true });
   form.parse(req, async (err, fields, files) => {
@@ -29,6 +30,7 @@ const create = (req, res, next) => {
     }
   });
 };
+
 const productByID = async (req, res, next, id) => {
   try {
     let product = await Product.findById(id)
@@ -46,6 +48,7 @@ const productByID = async (req, res, next, id) => {
     });
   }
 };
+
 const photo = (req, res, next) => {
   if (req.product.image.data) {
     res.set("Content-Type", req.product.image.contentType);
@@ -53,13 +56,16 @@ const photo = (req, res, next) => {
   }
   next();
 };
+
 const defaultPhoto = (req, res) => {
   return null;
 };
+
 const read = (req, res) => {
   req.product.image = undefined;
   return res.json(req.product);
 };
+
 const update = (req, res) => {
   let form = formidable({ keepExtensions: true });
   form.parse(req, async (err, fields, files) => {
@@ -87,6 +93,7 @@ const update = (req, res) => {
     }
   });
 };
+
 const remove = async (req, res) => {
   try {
     let product = req.product;
@@ -98,6 +105,7 @@ const remove = async (req, res) => {
     });
   }
 };
+
 const listByShop = async (req, res) => {
   try {
     let products = await Product.find({ shop: req.shop._id })
@@ -110,6 +118,7 @@ const listByShop = async (req, res) => {
     });
   }
 };
+
 export default {
   create,
   productByID,

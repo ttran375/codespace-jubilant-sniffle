@@ -6,7 +6,6 @@ import Signup from "./user/Signup.jsx";
 import Signin from "./lib/Signin.jsx";
 import Profile from "./user/Profile.jsx";
 import PrivateRoute from "./lib/PrivateRoute.jsx";
-
 import EditProfile from "./user/EditProfile.jsx";
 import MyShops from "./shop/MyShops";
 import NewShop from "./shop/NewShop";
@@ -14,11 +13,11 @@ import EditShop from "./shop/EditShop";
 import NewProduct from "./product/NewProduct";
 import EditProduct from "./product/EditProduct";
 import Menu from "./core/Menu";
+
 function MainRouter() {
   return (
     <div>
       <Menu />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<Users />} />
@@ -33,7 +32,6 @@ function MainRouter() {
           }
         />
         <Route path="/user/:userId" element={<Profile />} />
-        
         <Route
           path="/seller/shops"
           element={
@@ -42,7 +40,6 @@ function MainRouter() {
             </PrivateRoute>
           }
         />
-        
         <Route
           path="/seller/shop/new"
           element={
@@ -51,7 +48,6 @@ function MainRouter() {
             </PrivateRoute>
           }
         />
-        
         <Route
           path="/seller/shop/edit/:shopId"
           element={
@@ -60,24 +56,23 @@ function MainRouter() {
             </PrivateRoute>
           }
         />
-         <Route
- path="/seller/:shopId/products/new"
- element={
- <PrivateRoute>
- <NewProduct />
- </PrivateRoute>
- }
- component={NewProduct}
- />
- <Route
- path="/seller/:shopId/:productId/edit"
- element={
- <PrivateRoute>
- <EditProduct />
- </PrivateRoute>
- }
- />
-
+        <Route
+          path="/seller/:shopId/products/new"
+          element={
+            <PrivateRoute>
+              <NewProduct />
+            </PrivateRoute>
+          }
+          component={NewProduct}
+        />
+        <Route
+          path="/seller/:shopId/:productId/edit"
+          element={
+            <PrivateRoute>
+              <EditProduct />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );

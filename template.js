@@ -1,5 +1,5 @@
-export default () => { 
-    return `<!doctype html>
+export default () => {
+  return `<!doctype html>
     <html lang="en"> 
     <head>
     <meta charset="utf-8">
@@ -15,6 +15,5 @@ rel="stylesheet">
     <script type="text/javascript“ src="/dist/bundle.js"></script> 
 
     </body>
-    </html>` 
-    }
-    
+    </html>`;
+};

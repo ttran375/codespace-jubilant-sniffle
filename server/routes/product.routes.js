@@ -2,7 +2,9 @@ import express from "express";
 import productCtrl from "../controllers/product.controller.js";
 import authCtrl from "../controllers/auth.controller.js";
 import shopCtrl from "../controllers/shop.controller.js";
+
 const router = express.Router();
+
 router
   .route("/api/products/by/:shopId")
   .post(authCtrl.requireSignin, shopCtrl.isOwner, productCtrl.create)
@@ -18,4 +20,5 @@ router
   .delete(authCtrl.requireSignin, shopCtrl.isOwner, productCtrl.remove);
 router.param("shopId", shopCtrl.shopByID);
 router.param("productId", productCtrl.productByID);
+
 export default router;
